@@ -1,0 +1,43 @@
+<div *ngIf="sniker">
+    <!-- <h2>{{sniker.name}}</h2> -->
+<div>
+    
+        <div *ngIf="this.snikerService.showEditForm">
+            <mat-form-field class="name">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="sniker.name" placeholder="Name" value="">
+            </mat-form-field>
+        </div>
+        <div  *ngIf="this.snikerService.showEditForm">
+            <mat-form-field class="model">
+                <mat-label>Model</mat-label>
+                <input matInput [(ngModel)]="sniker.model" placeholder="Model" value="">
+            </mat-form-field>
+        </div>
+        <div  *ngIf="this.snikerService.showEditForm">
+            <mat-form-field class="brand">
+                <mat-label>Brand</mat-label>
+                <input matInput [(ngModel)]="sniker.brand" placeholder="Brand" value="">
+            </mat-form-field>
+        </div>
+        <div *ngIf="this.snikerService.showEditForm">
+            <mat-form-field class="production-year">
+                <mat-label>Production Year</mat-label>
+                <input matInput [(ngModel)]="sniker.productionYear" placeholder="Production Year" value="">
+            </mat-form-field>
+        </div>
+</div>
+
+<button mat-raised-button color="primary" (click)="updateSniker(sniker)" *ngIf="sniker.name">Save</button>
+<button mat-raised-button color="primary" (click)="deleteSniker(sniker)" *ngIf="sniker.name">Delete</button>
+<button mat-raised-button color="primary" (click)="addToTable()" *ngIf="!sniker.id">Create</button>
+
+<!-- <table mat-table >
+    <tr *ngFor="let sniker of snikerList">
+      <td>{{ sniker.name }}</td>
+      <td>{{ sniker.brand }}</td>
+      <td>{{ sniker.model }}</td>
+      <td>{{ sniker.productionYear }}</td>
+    </tr>
+  </table>
+</div> -->
